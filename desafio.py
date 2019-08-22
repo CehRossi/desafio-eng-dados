@@ -9,7 +9,7 @@ if __name__ == "__main__":
     sc = SparkContext(conf=conf)
 
     # lendo os logs
-    linhas = sc.textFile("./datasource/NASA_access_log*.gz")
+    logs = sc.textFile("./datasource/NASA_access_log*.gz")
 
-    numero_de_linhas = linhas.count()
-    print("===> total linhas: ", numero_de_linhas)
+    total_de_logs = linhas.count()
+    print("===> total linhas: ", total_de_logs)
