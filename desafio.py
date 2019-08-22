@@ -9,14 +9,7 @@ if __name__ == "__main__":
     sc = SparkContext(conf=conf)
 
     # lendo os logs
-    linhas = sc.textFile("/datasource/NASA_access_log*.gz")
+    linhas = sc.textFile("./datasource/NASA_access_log*.gz")
 
-    numero_de_linhas = linhas.map(lambda linha : linha.split("\n"))
-
-    # Transformandoo RDD em uma lista
-    lista_de_linhas = numero_de_linhas.collect()
-
-    # printa tudo
-    for linha in lista_de_linhas:
-        i += 1
-        print("==> Linha", i, linhas, sep=" ")
+    numero_de_linhas = linhas.count()
+    print("===> total linhas: ", numero_de_linhas)
