@@ -14,7 +14,7 @@ if __name__ == "__main__":
             http_code = dados[::-1][1]
         except:
             bytes_enviados = "xxxxxxx"
-            http_code = linha
+            http_code = "xxxxxxx"
 
         return {
             "host": host,
@@ -32,6 +32,5 @@ if __name__ == "__main__":
     total_de_logs = logs.count()
     print("===> total linhas: ", total_de_logs)
 
-    acessos = logs.map(lambda l: refina_log(l)) #, l.split(" ")[::-1][1])
-    acessos.saveAsTextFile("./resultado")
+    acessos = logs.map(lambda l: refina_log(l))
     
