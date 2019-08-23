@@ -38,3 +38,9 @@ if __name__ == "__main__":
 
     # Apenas uma linha com erro, avaliar o que fazer neste caso                        
     print("===> total erros: ", numero_de_erros.count())
+
+    #listando a quantidade de hosts distintos
+    numero_de_hosts = acessos \
+                        .map(lambda a: a["host"]) \
+                        .distinct() 
+    print("===> total hosts distintos: ", numero_de_hosts.count())
