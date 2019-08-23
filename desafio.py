@@ -33,4 +33,8 @@ if __name__ == "__main__":
     print("===> total linhas: ", total_de_logs)
 
     acessos = logs.map(lambda l: refina_log(l))
-    
+    numero_de_erros =  acessos \
+                        .filter(lambda a: a["http_code"] == "xxxxxxx")
+
+    # Apenas uma linha com erro, avaliar o que fazer neste caso                        
+    print("===> total erros: ", numero_de_erros.count())
