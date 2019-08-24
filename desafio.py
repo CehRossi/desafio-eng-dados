@@ -16,10 +16,11 @@ if __name__ == "__main__":
     print("===> total linhas: ", total_de_logs)
 
     acessos = logs.map(lambda linha: Utils.WHITESPACE_RE.split(linha))
-    acessos.saveAsTextFile("out")
 
-    # numero_de_erros =  acessos \
-    #                     .filter(lambda a: a["http_code"] == "xxxxxxx")
+    
+    numero_de_erros =  acessos \
+                         .filter(lambda a: len(a) != 7)
+    numero_de_erros.saveAsTextFile("out/numero_de_erros")
 
     # # Apenas uma linha com erro, avaliar o que fazer neste caso                        
     # print("===> total erros: ", numero_de_erros.count())
