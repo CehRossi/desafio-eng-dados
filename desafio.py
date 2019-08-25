@@ -13,7 +13,9 @@ if __name__ == "__main__":
     logs = sc.textFile("./in/NASA_access_log*.gz")
 
     # trato os dados para começar as análises
-    acessos = logs.map(lambda linha: Utils.linha_para_array(linha))
+    acessos = logs \
+                .map(lambda linha: Utils.linha_para_array(linha)) \
+                .cache()
     #acessos.saveAsTextFile("out/acessos")
     
     # Valido a qtde de logs invalidos
@@ -32,11 +34,12 @@ if __name__ == "__main__":
     print("===> DESAFIO 1: Total de hosts distintos: ", numero_de_hosts.count())
     # Achou 137.979
 
-    acessos.saveAsTextFile("out/acessos")
+    #acessos.saveAsTextFile("out/acessos")
 
     # 2) Listar o total de erros 404
     logs_404 = acessos \
-                .filter(lambda a: a[2] == 404)
+                .filter(lambda a: a[2] == 404) \
+                .cache()
     print("===> DESAFIO 2: Total de erros 404: ", logs_404.count())
     # Achou 20.901
 
