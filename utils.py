@@ -27,11 +27,13 @@ class Utils():
         try:
             host = first_array[0]
             data_log = Utils.string_to_date(first_array[1])
-            cod_http = first_array[3].split(" ")[0]
+            cod_http = int(first_array[3].split(" ")[0])
             
             try:
                 tamanho = int(first_array[3].split(" ")[1])
             except TypeError:
+                tamanho = 0
+            except ValueError:
                 tamanho = 0
 
             linha_com_erro = ""
