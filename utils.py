@@ -3,6 +3,12 @@ import re
 
 class Utils():
     
+    def date_to_string(date):
+        return datetime.strftime(date,'%d-%B-%Y')
+    
+    def string_to_date(date): 
+        return datetime.strptime(date,'%d/%b/%Y:%H:%M:%S %z')
+    
     def linha_para_array(linha):
         
         #linha = '''piweba3y.prodigy.com - - [03/Jul/1995:17:20:53 -0400] "GET /history/apollo/apollo-13/apo;;p-13.html HTTP/1.0" 404 -'''
@@ -20,7 +26,7 @@ class Utils():
 
         try:
             host = first_array[0]
-            data_log = datetime.strptime(first_array[1],'%d/%b/%Y:%H:%M:%S %z')
+            data_log = Utils.string_to_date(first_array[1])
             cod_http = first_array[3].split(" ")[0]
             
             if (first_array[3].split(" ")[1].isdigit()):
