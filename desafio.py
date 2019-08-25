@@ -15,15 +15,13 @@ if __name__ == "__main__":
     total_de_logs = logs.count()
     print("===> total linhas: ", total_de_logs)
 
-    acessos = logs.map(lambda linha: Utils.WHITESPACE_RE.split(linha))
-
+    acessos = logs.map(lambda linha: Utils.linha_para_array(linha))
+    #acessos.saveAsTextFile("out/acessos")
     
     numero_de_erros =  acessos \
-                         .filter(lambda a: len(a) != 7)
-    numero_de_erros.saveAsTextFile("out/numero_de_erros")
-
-    # # Apenas uma linha com erro, avaliar o que fazer neste caso                        
-    # print("===> total erros: ", numero_de_erros.count())
+                         .filter(lambda a: len(a[4]) > 0)
+    # Apenas uma linha com erro, avaliar o que fazer neste caso                        
+    print("===> total erros: ", numero_de_erros.count())
 
     # # Listando a quantidade de hosts distintos
     # numero_de_hosts = acessos \
