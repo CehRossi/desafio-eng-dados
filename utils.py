@@ -5,7 +5,7 @@ class Utils():
     
     def linha_para_array(linha):
         
-        linha = '''piweba3y.prodigy.com - - [03/Jul/1995:17:20:53 -0400] "GET /history/apollo/apollo-13/apo;;p-13.html HTTP/1.0" 404 -'''
+        #linha = '''piweba3y.prodigy.com - - [03/Jul/1995:17:20:53 -0400] "GET /history/apollo/apollo-13/apo;;p-13.html HTTP/1.0" 404 -'''
 
         token_1 = '''\s-\s-\s\['''    # sequencia de caracteres entre o host e a data do log
         token_2 = '''\]\s"'''         # sequencia de caracteres entre a data do log e a metodo http acessado
