@@ -1,6 +1,6 @@
 import sys
 from utils import Utils
-
+from operator import add
 from pyspark import SparkContext, SparkConf
 
 if __name__ == "__main__":
@@ -49,13 +49,14 @@ if __name__ == "__main__":
     # print(">>>>>> Top 5 hosts com 404: ", top_5_hosts_404)
 
     # Listar a qdtde de erro 404 por dia
-    erro_404_por_dia = logs_404 \
-                         .map(lambda a: (Utils.date_to_string(a[1]),1)) \
-                         .reduceByKey(lambda a, b: a + b)
-    erro_404_por_dia.saveAsTextFile("out/erro_404_por_dia")
+    # erro_404_por_dia = logs_404 \
+    #                      .map(lambda a: (Utils.date_to_string(a[1]),1)) \
+    #                      .reduceByKey(lambda a, b: a + b)
+    # erro_404_por_dia.saveAsTextFile("out/erro_404_por_dia")
 
     # Calcular o total de bytes retornados 
-    # total_bytes_retornados = logs_404 \
-    #                             .map(lambda a: (Utils.date_to_string(a[1]),1)) \
-    #                             .reduceByKey(lambda a, b: a + b)
-    # total_bytes_retornados.saveAsTextFile("out/total_bytes_retornados")
+    total_bytes_retornados = acessos \
+                                .map(lambda a: a[3]) \
+                                .reduce(add)
+    print(">>>> Total de bytes trafegados: ", total_bytes_retornados)
+    # Achou 65524314915 bytes (65,52Gb)
