@@ -29,9 +29,9 @@ class Utils():
             data_log = Utils.string_to_date(first_array[1])
             cod_http = first_array[3].split(" ")[0]
             
-            if (first_array[3].split(" ")[1].isdigit()):
-                tamanho = first_array[3].split(" ")[1]
-            else:
+            try:
+                tamanho = int(first_array[3].split(" ")[1])
+            except TypeError:
                 tamanho = 0
 
             linha_com_erro = ""
@@ -39,7 +39,7 @@ class Utils():
             host = ""
             data_log = ""
             cod_http = ""
-            tamanho = ""
+            tamanho = 0
             linha_com_erro = linha
     
         final_array = [
