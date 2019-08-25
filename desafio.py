@@ -23,16 +23,16 @@ if __name__ == "__main__":
     # Apenas uma linha com erro, avaliar o que fazer neste caso                        
     print("===> total erros: ", numero_de_erros.count())
 
-    # # Listando a quantidade de hosts distintos
-    # numero_de_hosts = acessos \
-    #                     .map(lambda a: a["host"]) \
-    #                     .distinct() 
-    # print("===> total hosts distintos: ", numero_de_hosts.count())
-    # # Achou 137979
+    # Listando a quantidade de hosts distintos
+    numero_de_hosts = acessos \
+                        .map(lambda a: a[0]) \
+                        .distinct() 
+    print("===> total hosts distintos: ", numero_de_hosts.count())
+    # Achou 137979
 
-    # # Listando o total de erros 404
-    # total_de_404 = acessos \
-    #                 .map(lambda a: a["http_code"]) \
-    #                 .filter(lambda a: a == "404") 
-    # print("===> total erro 404: ", total_de_404.count())
-    # # Achou 20901
+    # Listando o total de erros 404
+    total_de_404 = acessos \
+                    .map(lambda a: a[2]) \
+                    .filter(lambda a: a == "404") 
+    print("===> total erro 404: ", total_de_404.count())
+    # Achou 20901
