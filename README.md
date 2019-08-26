@@ -44,5 +44,5 @@ Grava o RDD **counts** como arquivo texto no HDFS
 <br><br>
 
 ### Considerações
-Gostaria de agradecer a oportunidade de participar deste desafio em Spark. Foi meu primeiro contato com a ferramenta e, apesar de não conseguir entregar o resultado das análises de uma maneira mais elegante e amigável, este desafio agregou muito conhecimento em um espaço curto de tempo e reforçou muito minha auto-estima e meu gosto por TI. Estou bem satisfeito pelo resultado que eu obtive e feliz por ter concluído este desafio.
-Até mais!!!
+Gostaria de agradecer a oportunidade de participar deste desafio em Spark. Foi meu primeiro contato com a ferramenta e, apesar de não conseguir entregar o resultado das análises de uma maneira mais elegante e amigável, este desafio agregou mais que apenas o conhecimento e o primeiro convívio com a ferramenta.<br>
+Espero que fiquem satisfeitos com meu resultado tão quanto eu fiquei.
